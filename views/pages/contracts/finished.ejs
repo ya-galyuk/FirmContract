@@ -1,0 +1,61 @@
+
+<div class="container-fluid">
+    <a href="/contracts/create" class="btn btn-outline-success col">Create</a>
+</div>
+
+<!--form for search-->
+<form class="form-row mt-3 mb-3" action='/contracts/finished' method='post'>
+    <input class="form-control col valid" type="text" placeholder="Search number or name firm" aria-label="Search" name="searchText">
+    <button class="btn btn-outline-success col-2 ml-2" type="submit">Search</button>
+</form>
+<div class="container-fluid">
+    <a href="/contracts/finished" class="btn btn-outline-danger col">finished</a>
+</div>
+
+<h2 class="mt-4">All Contracts</h2>
+
+<% if (success.length > 0){ %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= success %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr align="left">
+            <th scope="col">firmName</th>
+            <th scope="col">number</th>
+            <th scope="col">name</th>
+            <th scope="col">sum</th>
+            <th scope="col">dataStart</th>
+            <th scope="col">dataFinish</th>
+            <th scope="col">prepayment</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% for (var contract of contracts){ %>
+            <tr>
+                <td><%= contract.name %></td>
+                <td><%= contract.name %></td>
+                <td><%= contract.number %></td>
+                <td><%= contract.sum %></td>
+                <td><%= moment(contract.dateStart).format('DD.MM.YYYY') %></td>
+                <td><%= moment(contract.dateFinish).format('DD.MM.YYYY') %></td>
+                <td><%= contract.prepayment %></td>
+<!--                <td >-->
+<!--                    <a href="/contracts/<%= contract._id %>" class="btn btn-sm btn-primary">View</a>-->
+<!--                    <a href="/contracts/<%= contract._id %>/edit" class="btn btn-sm btn-warning">Edit</a>-->
+<!--                    <a href="/contracts/<%= contract._id %>/delete" class="btn btn-sm btn-danger">Delete</a>-->
+<!--                </td>-->
+            </tr>
+        <% } %>
+
+        </tbody>
+    </table>
+</div>

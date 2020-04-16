@@ -1,0 +1,29 @@
+/*.fist_letter_form {*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.fist_letter_link {*/
+/*    text-transform: uppercase;*/
+/*    border: none;*/
+/*    background: transparent;*/
+/*    color: blue;*/
+/*}*/
+
+/*form {*/
+/*    !*margin: 0;*!*/
+/*}*/
+
+th {
+    text-align: left;
+}
+
+#site_main{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#site_footer{
+    text-align: right;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

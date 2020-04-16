@@ -1,0 +1,44 @@
+<div class="jumbotron text-center">
+    <h1>Editing <%= firm.name %></h1>
+</div>
+
+<div class="row">
+    <div class="container">
+
+        <% if(errors.length > 0) { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <ul class="m-0">
+                    <% for (error of errors) { %>
+                        <li><%= error %></li>
+                    <% } %>
+                </ul>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% } %>
+
+        <form action="/firms/<%= firm._id %>" method="post">
+
+            <div class="form-row">
+                <div class="col-md-3 mb-3">
+                    <label for="name_firm">Name</label>
+                    <input id="name_firm" type='text' class="form-control" name='name_firm' placeholder="Enter name" value="<%= firm.name %>">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="ceo_firm">Ceo</label>
+                    <input id="ceo_firm" type='text' class="form-control" name='ceo_firm' placeholder="Enter ceo" value="<%= firm.ceo %>">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="address_firm">Address</label>
+                    <input id="address_firm" type='text' class="form-control" name='address_firm' placeholder="Enter address" value="<%= firm.address %>">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <button type="submit" class="btn btn-primary col mb-3">Update</button>
+            </div>
+        </form>
+
+    </div>
+</div>

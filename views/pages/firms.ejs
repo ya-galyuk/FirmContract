@@ -1,0 +1,43 @@
+
+<div class="container row">
+    <a href="/firms/create" class="btn btn-outline-success col">Create</a>
+</div>
+<h2 class="mt-4">All firm</h2>
+
+<% if (success.length > 0){ %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= success %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr align="left">
+            <th scope="col">Name</th>
+            <th scope="col">Ceo</th>
+            <th scope="col">Address</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <% for (var firm of firms){ %>
+                <tr>
+                    <td><%= firm.name %></td>
+                    <td><%= firm.ceo %></td>
+                    <td><%= firm.address %></td>
+                    <td >
+                        <a href="/firms/<%= firm._id %>" class="btn btn-sm btn-primary">View</a>
+                        <a href="/firms/<%= firm._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="/firms/<%= firm._id %>/delete" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,12 @@
+<% if (success.length > 0){ %>
+    <div class="alert alert-success"><%= success %></div>
+<% } %>
+
+<div class="jumbotron">
+    <h1><%= contract.number %></h1>
+    <p class="lead"><%= contract.name %></p>
+    <hr class="my-4">
+    <p>from <%= moment(contract.dateStart).format('DD.MM.YYYY') %> to <%= moment(contract.dateFinish).format('DD.MM.YYYY') %></p>
+    <p>sum: <%= contract.sum %></p>
+    <p>prepayment: <%= contract.prepayment %></p>
+</div>

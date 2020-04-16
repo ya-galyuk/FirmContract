@@ -1,0 +1,66 @@
+
+<div class="row">
+    <div class="container">
+        <h2 class="mt-4">Create a Contract</h2>
+
+        <% if(typeof errors !== 'undefined'){
+        if(errors.length > 0) { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <ul class="m-0">
+                    <% for (error of errors) { %>
+                        <li><%= error %></li>
+                    <% } %>
+                </ul>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% }
+        } %>
+
+        <form action="/contracts/create" method="post">
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="">firm</label>
+                    <select class="custom-select" name="firmId_contract">
+                        <option selected disabled>Select firm</option>
+                        <% for (firm of firms) { %>
+                            <option value="<%=firm._id%>"><%=firm.name%></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="">number</label>
+                    <input type='text' class="form-control" name='number_contract' min="0" placeholder="Enter number">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="">name</label>
+                    <input type='text' class="form-control" name='name_contract'  placeholder="Enter name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-3 mb-3">
+                    <label for="">sum</label>
+                    <input type='number' class="form-control" name='sum_contract' min="0" placeholder="Enter sum.">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="">dateStart</label>
+                    <input type='date' class="form-control" name='dateStart_contract'  placeholder="Enter dateStart." >
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="">dateFinish</label>
+                    <input type='date' class="form-control" name='dateFinish_contract'  placeholder="Enter dateFinish.">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="">prepayment</label>
+                    <input type='number' class="form-control" name='prepayment_contract' min="0" placeholder="Enter prepayment.">
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="submit" class="btn btn-primary col">Create</button>
+            </div>
+        </form>
+
+    </div>
+</div>
